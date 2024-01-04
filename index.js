@@ -36,6 +36,7 @@ async function run() {
 
     // Database
     const Currency = client.db('BrightonFx').collection('Currencies')
+    const Orders = client.db('BrightonFx').collection('Orders')
     
 
 
@@ -47,6 +48,13 @@ async function run() {
         const result = await Currency.find().toArray()
         res.send(result)
     })
+
+    app.post('/Order',async(req,res)=>{
+      const body = req.body
+      const result = await Orders.insertOne(body)
+      res.send(result)
+    })
+
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
