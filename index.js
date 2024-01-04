@@ -37,12 +37,13 @@ async function run() {
     // Database
     const Currency = client.db('BrightonFx').collection('Currencies')
     const Orders = client.db('BrightonFx').collection('Orders')
+    const Upsell = client.db('BrightonFx').collection('Upselling')
     
 
 
 
     // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
+    
 
     app.get('/currency',async(req,res)=>{
         const result = await Currency.find().toArray()
@@ -55,9 +56,38 @@ async function run() {
       res.send(result)
     })
 
+    app.get('/upsell',async(req,res)=>{
+      const result = await Upsell.findOne()
+      res.send(result)
+    })
+
+
+    app.get('/upsellUpdate/:newPercentage',async(req,res)=>{
+
+      const Upselling = req.params.newPercentage
+      
+      const updateDoc = {
+        $set:{
+          Upsell : Upselling
+        }
+      }
+      const result = await Upsell.updateOne({}, updateDoc);
+      res.send(result)
+    })
+
+
+    // app.get('/GetCurrent/:updateValue',async(req,res)=>{
+    //   const Upsell = parseInt(req.params.updateValue)
+    //   const updateDoc = {
+    //     $set:{
+    //       Upsell : Upsell
+    //     }
+    //   }
+    //   const result = await Upsell.
+
+    // })
     // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+    
   } finally {
     // Ensures that the client will close when you finish/error
     
