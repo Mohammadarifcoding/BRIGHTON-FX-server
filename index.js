@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 const cors = require('cors')
 require("dotenv").config();
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 
 app.use(cors())
 app.use(express.json())
@@ -91,7 +91,39 @@ async function run() {
       const result = await Currency.insertOne(body);
       res.send(result);
     });
+
+
+    app.get('/PendingOrder',async(req,res)=>{
+      const query = {
+        Status: "Pending"
+        }
+        const result = await Orders.find(query).toArray()
+        res.send(result)
+    })
     
+    app.get('/pendingToAceept/:id',async(req,res)=>{
+      const query = {_id : new ObjectId(req.params.id)}
+      const updateDoc = {
+        $set:{
+          Status: "Accepted"
+        }
+      }
+      const result = await Orders.updateOne(query,updateDoc)
+      res.send(result)
+    })
+    app.get('/AcceptedOrder',async(req,res)=>{
+      const query = {
+        Status: "Accepted"
+      }
+      const result = await Orders.find(query).toArray()
+      res.send(result)
+    })
+
+    app.get('/details/:Id',async(req,res)=>{
+      const query = {_id : new ObjectId(req.params.Id)}
+      const result = await Orders.findOne(query)
+      res.send(result)
+    })
 
     // app.get('/GetCurrent/:updateValue',async(req,res)=>{
     //   const Upsell = parseInt(req.params.updateValue)
