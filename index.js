@@ -76,6 +76,19 @@ async function run() {
     })
 
 
+    app.post('/AddCurrency',async(req,res)=>{
+      const body = req.body
+      const query = {
+        value :body.value
+        }
+        const findData = Currency.findOne(query)
+        if(findData){
+        return  res.send({messeage:'Already added'})
+        }
+        const result = Currency.insertOne(body)
+        res.send(result)
+    })
+
     // app.get('/GetCurrent/:updateValue',async(req,res)=>{
     //   const Upsell = parseInt(req.params.updateValue)
     //   const updateDoc = {
