@@ -76,18 +76,22 @@ async function run() {
     })
 
 
-    app.post('/AddCurrency',async(req,res)=>{
-      const body = req.body
+    app.post('/AddCurrency', async (req, res) => {
+      const body = req.body;
       const query = {
-        value :body.value
-        }
-        const findData = Currency.findOne(query)
-        if(findData){
-        return  res.send({messeage:'Already added'})
-        }
-        const result = Currency.insertOne(body)
-        res.send(result)
-    })
+        value: body.value
+      };
+    
+      const findData = await Currency.find(query).toArray();
+    
+      if (findData.length) {
+        return res.send({ message: 'Already added' });
+      }
+    
+      const result = await Currency.insertOne(body);
+      res.send(result);
+    });
+    
 
     // app.get('/GetCurrent/:updateValue',async(req,res)=>{
     //   const Upsell = parseInt(req.params.updateValue)
