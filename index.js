@@ -44,7 +44,7 @@ async function run() {
       res.send(result);
     });
 
-    app.get("/updateCurrency/:currency", async (req, res) => {
+    app.put("/updateCurrency/:currency", async (req, res) => {
       const currencyName = req.params.currency;
       const query = { value: currencyName };
       const body = req.body;
