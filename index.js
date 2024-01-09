@@ -50,6 +50,15 @@ async function run() {
         res.send(result)
     })
 
+    app.get('/singleCurrency/:currency',async(req,res)=>{
+          const currencyName = req.params.currency
+          const query = {
+            value : currencyName
+            }
+          const result = await Currency.findOne(query)
+          res.send(result)
+    })
+
     app.post('/Order',async(req,res)=>{
       const body = req.body
       const result = await Orders.insertOne(body)
@@ -124,6 +133,7 @@ async function run() {
       const result = await Orders.findOne(query)
       res.send(result)
     })
+
 
     // app.get('/GetCurrent/:updateValue',async(req,res)=>{
     //   const Upsell = parseInt(req.params.updateValue)
