@@ -131,6 +131,22 @@ async function run() {
       res.send(result);
     });
 
+    app.put('/UpdateCurrencyPrice/:currency',async(req,res)=>{
+      const SelectedCurreny = req.params.currency
+      const body = req.body
+      const Rate = body.Rate
+      const option = {upsert : true}
+      const query = {value : SelectedCurreny}
+      const updateDoc = {
+        $set:{
+          Rate : Rate
+        }
+      }
+      const result = await Currency.updateOne(query,updateDoc,option)
+      res.send(result)
+
+    })
+
     // app.get('/GetCurrent/:updateValue',async(req,res)=>{
     //   const Upsell = parseInt(req.params.updateValue)
     //   const updateDoc = {
