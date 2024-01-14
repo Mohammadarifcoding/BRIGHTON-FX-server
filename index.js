@@ -27,6 +27,7 @@ async function run() {
     const Currency = client.db("BrightonFx").collection("Currencies");
     const Orders = client.db("BrightonFx").collection("Orders");
     const Upsell = client.db("BrightonFx").collection("Upselling");
+    const Users = client.db("BrightonFx").collection("Users");
 
     // Connect the client to the server	(optional starting in v4.7)
 
@@ -145,6 +146,19 @@ async function run() {
       const result = await Currency.updateOne(query,updateDoc,option)
       res.send(result)
 
+    })
+
+    app.post('/user',async(req,res)=>{
+      const email = req.body.email
+      const body = req.body
+      const findtheData = await Users.find({email : email}).toArray()
+      if(findtheData.length){
+        return res.send({messege:'Already Added'})
+      }
+      
+        const AddedData = await Users.insertOne(body)
+        res.send(AddedData)
+      
     })
 
     // app.get('/GetCurrent/:updateValue',async(req,res)=>{
