@@ -154,13 +154,53 @@ async function run() {
       const findtheData = await Users.find({email : email}).toArray()
       if(findtheData.length){
         return res.send({messege:'Already Added'})
-      }
-      
+      }  
         const AddedData = await Users.insertOne(body)
         res.send(AddedData)
       
     })
 
+    app.get('/admincheck/:email',async(req,res)=>{
+      const email = req.params.email
+      let admin = false
+      const findUser = await Users.findOne({email:email})
+      if(findUser?.role == 'Admin'){
+        admin = true
+      }
+      res.send(admin)
+    })
+
+    app.get('/Updatefdf',async(req,res)=>{
+      const SelectedCurreny = req.params.currency
+      const body = req.body
+      const Rate = body.Rate
+      const option = {upsert : true}
+      const query = {value : SelectedCurreny}
+      const updateDoc = {
+        $set:{
+          Rate : 0.1
+        }
+      }
+      const result = await Currency.updateMany({},updateDoc,option)
+      res.send('done')
+
+    })
+
+    app.get('/allusers',async(req,res)=>{
+      const result = await Users.find().toArray()
+      res.send(result)
+    })
+
+    app.put('/updateUser/:email',async(req,res)=>{
+      const query = {email : req.params.email }
+      const updateDoc = {
+        $set:{
+          role:'Admin'
+        }
+      }
+      const result = await Users.updateOne(query,updateDoc)
+      res.send(result)
+    })
     // app.get('/GetCurrent/:updateValue',async(req,res)=>{
     //   const Upsell = parseInt(req.params.updateValue)
     //   const updateDoc = {
