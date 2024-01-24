@@ -201,6 +201,32 @@ async function run() {
       const result = await Users.updateOne(query,updateDoc)
       res.send(result)
     })
+
+    app.get('/completedOrder',async(req,res)=>{
+      const query = {
+        Status: "Completed",
+      };
+      const result = await Orders.find(query).toArray();
+      res.send(result);
+    })
+
+    app.put('/acceptedToCompleted/:id',async(req,res)=>{
+      const query = { _id: new ObjectId(req.params.id) };
+      const updateDoc = {
+        $set: {
+          Status: "Completed",
+        },
+      };
+      const result = await Orders.updateOne(query, updateDoc);
+      res.send(result);
+    })
+
+
+    app.delete('/deleteOrder/:id',async(req,res)=>{
+      const query = {_id : new ObjectId(req.params.id)}
+      const result = await Orders.deleteOne(query)
+      res.send(result)
+    })
     // app.get('/GetCurrent/:updateValue',async(req,res)=>{
     //   const Upsell = parseInt(req.params.updateValue)
     //   const updateDoc = {
