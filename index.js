@@ -209,7 +209,7 @@ async function run() {
       const result = await Orders.find(query).toArray();
       res.send(result);
     })
-
+  
     app.put('/acceptedToCompleted/:id',async(req,res)=>{
       const query = { _id: new ObjectId(req.params.id) };
       const updateDoc = {
