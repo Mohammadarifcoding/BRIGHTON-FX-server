@@ -1,0 +1,364 @@
+[
+  {
+    "value": "EUR",
+    "label": "Euro",
+    "Buy": 1,
+    "Sell": "-1.1",
+    "Rate": 1.168107
+  },
+  {
+    "value": "USD",
+    "label": "United States Dollar",
+    "Buy": 1,
+    "Sell": "-.9",
+    "Rate": 1.261543
+  },
+  {
+    "value": "AUD",
+    "label": "Australian Dollar",
+    "Buy": 2,
+    "Sell": "-2.5",
+    "Rate": 1.924067
+  },
+  {
+    "value": "AED",
+    "label": "United Arab Emirates Dirham",
+    "Buy": 2,
+    "Sell": "-1.5",
+    "Rate": 4.633017
+  },
+  {
+    "value": "BHD",
+    "label": "Bahraini Dinar",
+    "Buy": 4,
+    "Sell": -3.5,
+    "Rate": 0.475333
+  },
+  {
+    "value": "BGN",
+    "label": "Bulgarian Lev",
+    "Buy": 2,
+    "Sell": "-3",
+    "Rate": 2.282908
+  },
+
+  {
+    "value": "BBD",
+    "label": "Barbadian Dollar",
+    "Buy": "4",
+    "Sell": "-6",
+    "Rate": 2.543949
+  },
+  {
+    "value": "CAD",
+    "label": "Canadian Dollar",
+    "Buy": "3",
+    "Sell": "-2.5",
+    "Rate": 1.706123
+  },
+  {
+    "value": "CHF",
+    "label": "Swiss Franc",
+    "Buy": "2",
+    "Sell": "-2.50",
+    "Rate": 1.110666
+  },
+  {
+    "value": "CRC",
+    "label": "Costa Rican Colón",
+    "Buy": 8,
+    "Sell": -8,
+    "Rate": 647.911578
+  },
+  {
+    "value": "CLP",
+    "label": "Chilean Peso",
+    "Buy": 8,
+    "Sell": -8,
+    "Rate": 1214.364528
+  },
+  {
+    "value": "CZK",
+    "label": "Czech Republic Koruna",
+    "Buy": 3,
+    "Sell": -3.5,
+    "Rate": 29.644751
+  },
+  {
+    "value": "CNY",
+    "label": "Chinese Yuan",
+    "Buy": "6.5",
+    "Sell": -5,
+    "Rate": 9.070118
+  },
+  {
+    "value": "COP",
+    "label": "Colombian Peso",
+    "Buy": "10",
+    "Sell": -8.4,
+    "Rate": 4943.533771
+  },
+
+  {
+    "value": "DOP",
+    "label": "Dominican Peso",
+    "Buy": 7,
+    "Sell": "-7.2",
+    "Rate": 73.857703
+  },
+
+  {
+    "value": "DKK",
+    "label": "Danish Krone",
+    "Buy": "6",
+    "Sell": -3,
+    "Rate": 8.707745
+  },
+  {
+    "label": "Egyptian Pounds",
+    "value": "EGP",
+    "Sell": "-1",
+    "Buy": 100,
+    "Rate": 38.975879
+  },
+  {
+    "value": "FJD",
+    "label": "Fijian Dollar",
+    "Buy": 6,
+    "Sell": "-7",
+    "Rate": 2.854243
+  },
+
+  {
+    "value": "HUF",
+    "label": "Hungarian Forint",
+    "Buy": 4,
+    "Sell": "-5",
+    "Rate": 453.203104
+  },
+  {
+    "value": "HKD",
+    "label": "Hong Kong Dollar",
+    "Buy": 3,
+    "Sell": "-4",
+    "Rate": 9.866965
+  },
+  {
+    "value": "IDR",
+    "label": "Indonesian Rupiah",
+    "Buy": 10,
+    "Sell": -7,
+    "Rate": 19723.786895
+  },
+  {
+    "value": "ISK",
+    "label": "Icelandic Króna",
+    "Buy": 8,
+    "Sell": "-6",
+    "Rate": 173.234923
+  },
+
+  {
+    "label": "Indian Rupees ",
+    "value": "INR",
+    "Sell": "-2",
+    "Buy": 6,
+    "Rate": 104.65271
+  },
+  {
+    "value": "JOD",
+    "label": "Jordanian Dinar",
+    "Buy": "4",
+    "Sell": "-4",
+    "Rate": 0.894482
+  },
+
+  {
+    "value": "JMD",
+    "label": "Jamaican Dollar",
+    "Buy": 5,
+    "Sell": "-7",
+    "Rate": 197.362249
+  },
+
+  {
+    "value": "JPY",
+    "label": "Japanese Yen",
+    "Buy": 3,
+    "Sell": -3,
+    "Rate": 189.276906
+  },
+  {
+    "value": "KWD",
+    "label": "Kuwaiti Dinar",
+    "Buy": 6,
+    "Sell": "-4",
+    "Rate": 0.38819
+  },
+
+  {
+    "value": "KRW",
+    "label": "South Korean Won",
+    "Buy": 6,
+    "Sell": "-6.5",
+    "Rate": 1684.626557
+  },
+  {
+    "value": "KES",
+    "label": "Kenyan Shilling",
+    "Buy": "7",
+    "Sell": -6.5,
+    "Rate": 183.557385
+  },
+  {
+    "label": "Sri Lankan Rupees",
+    "value": "LKR",
+    "Sell": "-11",
+    "Buy": 8,
+    "Rate": 392.995835
+  },
+  {
+    "value": "MXN",
+    "label": "Mexican Peso",
+    "Buy": 3,
+    "Sell": "-5.5",
+    "Rate": 21.520123
+  },
+  {
+    "value": "MYR",
+    "label": "Malaysian Ringgit",
+    "Buy": "5.75",
+    "Sell": -5.75,
+    "Rate": 6.047865
+  },
+  {
+    "value": "MUR",
+    "label": "Mauritian Rupee",
+    "Buy": "6.6",
+    "Sell": -5.8,
+    "Rate": 57.738002
+  },
+  {
+    "label": "Moroccan Dirham",
+    "value": "MAD",
+    "Sell": -20,
+    "Buy": "4",
+    "Rate": 12.694541
+  },
+  {
+    "value": "NOK",
+    "label": "Norwegian Krone",
+    "Buy": "4",
+    "Sell": "-4",
+    "Rate": 13.243876
+  },
+  {
+    "value": "NZD",
+    "label": "New Zealand Dollar",
+    "Buy": 2,
+    "Sell": "-3",
+    "Rate": 2.038812
+  },
+  {
+    "value": "OMR",
+    "label": "Omani Rial",
+    "Buy": 5,
+    "Sell": "-4",
+    "Rate": 0.485626
+  },
+  {
+    "value": "PEN",
+    "label": "Peruvian Nuevo Sol",
+    "Buy": 6,
+    "Sell": -7.5,
+    "Rate": 4.787099
+  },
+  {
+    "value": "PLN",
+    "label": "Polish Zloty",
+    "Buy": "3.5",
+    "Sell": -3,
+    "Rate": 5.041255
+  },
+  {
+    "value": "PHP",
+    "label": "Philippine Peso",
+    "Buy": 5,
+    "Sell": "-7.5",
+    "Rate": 70.549292
+  },
+
+  {
+    "value": "RON",
+    "label": "Romanian Leu",
+    "Buy": "5",
+    "Sell": "-6",
+    "Rate": 5.812055
+  },
+  {
+    "value": "SAR",
+    "label": "Saudi Riyal",
+    "Buy": "4",
+    "Sell": "-4",
+    "Rate": 4.731626
+  },
+  {
+    "value": "SEK",
+    "label": "Swedish Krona",
+    "Buy": 3,
+    "Sell": "-2",
+    "Rate": 13.095532
+  },
+  {
+    "value": "SGD",
+    "label": "Singapore Dollar",
+    "Buy": 3,
+    "Sell": "-2.5",
+    "Rate": 1.695432
+  },
+  {
+    "value": "TRY",
+    "label": "Turkish Lira",
+    "Buy": 2,
+    "Sell": "-5.8",
+    "Rate": 39.073886
+  },
+  {
+    "value": "THB",
+    "label": "Thai Baht",
+    "Buy": 2,
+    "Sell": "-4",
+    "Rate": 45.204246
+  },
+
+  {
+    "value": "TWD",
+    "label": "New Taiwan Dollar",
+    "Buy": "10.5",
+    "Sell": -7,
+    "Rate": 39.749964
+  },
+  {
+    "value": "VND",
+    "label": "Vietvaluese Dong",
+    "Buy": 4,
+    "Sell": -7,
+    "Rate": 30951.963202
+  },
+
+  {
+    "value": "XCD",
+    "label": "East Caribbean Dollar",
+    "Buy": 5.5,
+    "Sell": "-5.5",
+    "Rate": 3.409384
+  },
+
+  {
+    "value": "ZAR",
+    "label": "South African Rand",
+    "Buy": "3",
+    "Sell": -3,
+    "Rate": 23.821346
+  }
+]
