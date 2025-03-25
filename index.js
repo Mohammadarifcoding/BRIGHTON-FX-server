@@ -4,6 +4,7 @@ const port = 7000;
 const cors = require("cors");
 require("dotenv").config();
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
+const { SendGoodNewsEmail, SendEmail } = require("./utils");
 
 app.use(cors());
 app.use(express.json());
@@ -30,9 +31,8 @@ async function run() {
     const Users = client.db("BrightonFx").collection("Users");
 
     // Connect the client to the server	(optional starting in v4.7)
-
     app.get("/currency", async (req, res) => {
-      const result = await Currency.find().toArray();
+      const result = await Currency.find().sort({ Number: 1 }).toArray();
       res.send(result);
     });
 
@@ -57,13 +57,15 @@ async function run() {
           Sell: body.Sell,
         },
       };
-      const result = await Currency.updateOne(query,updateDoc)
-      res.send(result)
+      const result = await Currency.updateOne(query, updateDoc);
+      res.send(result);
     });
 
     app.post("/Order", async (req, res) => {
       const body = req.body;
       const result = await Orders.insertOne(body);
+      const email = await SendEmail(req);
+      console.log(email)
       res.send(result);
     });
 
@@ -116,6 +118,8 @@ async function run() {
         },
       };
       const result = await Orders.updateOne(query, updateDoc);
+      const find = await Orders.findOne(query);
+      const email = await SendGoodNewsEmail(find);
       res.send(result);
     });
     app.get("/AcceptedOrder", async (req, res) => {
@@ -132,85 +136,82 @@ async function run() {
       res.send(result);
     });
 
-    app.put('/UpdateCurrencyPrice/:currency',async(req,res)=>{
-      const SelectedCurreny = req.params.currency
-      const body = req.body
-      const Rate = body.Rate
-      const option = {upsert : true}
-      const query = {value : SelectedCurreny}
+    app.put("/UpdateCurrencyPrice/:currency", async (req, res) => {
+      const SelectedCurreny = req.params.currency;
+      const body = req.body;
+      const Rate = body.Rate;
+      const option = { upsert: true };
+      const query = { value: SelectedCurreny };
       const updateDoc = {
-        $set:{
-          Rate : Rate
-        }
+        $set: {
+          Rate: Rate,
+        },
+      };
+      const result = await Currency.updateOne(query, updateDoc, option);
+      res.send(result);
+    });
+
+    app.post("/user", async (req, res) => {
+      const email = req.body.email;
+      const body = req.body;
+      const findtheData = await Users.find({ email: email }).toArray();
+      if (findtheData.length) {
+        return res.send({ messege: "Already Added" });
       }
-      const result = await Currency.updateOne(query,updateDoc,option)
-      res.send(result)
+      const AddedData = await Users.insertOne(body);
+      res.send(AddedData);
+    });
 
-    })
-
-    app.post('/user',async(req,res)=>{
-      const email = req.body.email
-      const body = req.body
-      const findtheData = await Users.find({email : email}).toArray()
-      if(findtheData.length){
-        return res.send({messege:'Already Added'})
-      }  
-        const AddedData = await Users.insertOne(body)
-        res.send(AddedData)
-      
-    })
-
-    app.get('/admincheck/:email',async(req,res)=>{
-      const email = req.params.email
-      let admin = false
-      const findUser = await Users.findOne({email:email})
-      if(findUser?.role == 'Admin'){
-        admin = true
+    app.get("/admincheck/:email", async (req, res) => {
+      const email = req.params.email;
+      let admin = false;
+      const findUser = await Users.findOne({ email: email });
+      if (findUser?.role == "Admin") {
+        admin = true;
       }
-      res.send(admin)
-    })
+      res.send(admin);
+    });
 
-    app.get('/Updatefdf',async(req,res)=>{
-      const SelectedCurreny = req.params.currency
-      const body = req.body
-      const Rate = body.Rate
-      const option = {upsert : true}
-      const query = {value : SelectedCurreny}
+    app.get("/Updatefdf", async (req, res) => {
+      const SelectedCurreny = req.params.currency;
+      const body = req.body;
+      const Rate = body.Rate;
+      const option = { upsert: true };
+      const query = { value: SelectedCurreny };
       const updateDoc = {
-        $set:{
-          Rate : 0.1
-        }
-      }
-      const result = await Currency.updateMany({},updateDoc,option)
-      res.send('done')
+        $set: {
+          Rate: 0.1,
+        },
+      };
+      const result = await Currency.updateMany({}, updateDoc, option);
+      res.send("done");
+    });
 
-    })
+    app.get("/allusers", async (req, res) => {
+      const result = await Users.find().toArray();
+      res.send(result);
+    });
 
-    app.get('/allusers',async(req,res)=>{
-      const result = await Users.find().toArray()
-      res.send(result)
-    })
-
-    app.put('/updateUser/:email',async(req,res)=>{
-      const query = {email : req.params.email }
+    app.put("/updateUser/:email", async (req, res) => {
+      const query = { email: req.params.email };
       const updateDoc = {
-        $set:{
-          role:'Admin'
-        }
-      }
-      const result = await Users.updateOne(query,updateDoc)
-      res.send(result)
-    })
+        $set: {
+          role: "Admin",
+        },
+      };
+      const result = await Users.updateOne(query, updateDoc);
+      res.send(result);
+    });
 
-    app.get('/completedOrder',async(req,res)=>{
+    app.get("/completedOrder", async (req, res) => {
       const query = {
         Status: "Completed",
       };
       const result = await Orders.find(query).toArray();
       res.send(result);
-    })
-  
-    app.put('/acceptedToCompleted/:id',async(req,res)=>{
+    });
+
+    app.put("/acceptedToCompleted/:id", async (req, res) => {
       const query = { _id: new ObjectId(req.params.id) };
       const updateDoc = {
         $set: {
@@ -219,12 +220,16 @@ async function run() {
       };
       const result = await Orders.updateOne(query, updateDoc);
       res.send(result);
-    })
+    });
 
+    app.delete("/deleteOrder/:id", async (req, res) => {
+      const query = { _id: new ObjectId(req.params.id) };
+      const result = await Orders.deleteOne(query);
+      res.send(result);
+    });
 
-    app.delete('/deleteOrder/:id',async(req,res)=>{
-      const query = {_id : new ObjectId(req.params.id)}
-      const result = await Orders.deleteOne(query)
+    app.post('/sendmail',async(req,res)=>{
+      const result = await SendEmail(req.body);
       res.send(result)
     })
     // app.get('/GetCurrent/:updateValue',async(req,res)=>{

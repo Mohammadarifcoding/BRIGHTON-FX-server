@@ -1,5 +1,7 @@
 [
   {
+
+    "Number":1,
     "value": "EUR",
     "label": "Euro",
     "Buy": 1,
@@ -7,6 +9,7 @@
     "Rate": 1.168107
   },
   {
+    "Number":2,
     "value": "USD",
     "label": "United States Dollar",
     "Buy": 1,
@@ -14,6 +17,7 @@
     "Rate": 1.261543
   },
   {
+    "Number":3,
     "value": "AUD",
     "label": "Australian Dollar",
     "Buy": 2,
@@ -21,6 +25,7 @@
     "Rate": 1.924067
   },
   {
+    "Number":4,
     "value": "AED",
     "label": "United Arab Emirates Dirham",
     "Buy": 2,
@@ -28,6 +33,7 @@
     "Rate": 4.633017
   },
   {
+    "Number":5,
     "value": "BHD",
     "label": "Bahraini Dinar",
     "Buy": 4,
@@ -35,6 +41,7 @@
     "Rate": 0.475333
   },
   {
+    "Number":6,
     "value": "BGN",
     "label": "Bulgarian Lev",
     "Buy": 2,
@@ -43,6 +50,7 @@
   },
 
   {
+    "Number":7,
     "value": "BBD",
     "label": "Barbadian Dollar",
     "Buy": "4",
@@ -50,6 +58,7 @@
     "Rate": 2.543949
   },
   {
+    "Number":8,
     "value": "CAD",
     "label": "Canadian Dollar",
     "Buy": "3",
@@ -57,6 +66,7 @@
     "Rate": 1.706123
   },
   {
+    "Number":9,
     "value": "CHF",
     "label": "Swiss Franc",
     "Buy": "2",
@@ -64,6 +74,7 @@
     "Rate": 1.110666
   },
   {
+    "Number":10,
     "value": "CRC",
     "label": "Costa Rican Colón",
     "Buy": 8,
@@ -71,6 +82,7 @@
     "Rate": 647.911578
   },
   {
+    "Number":11,
     "value": "CLP",
     "label": "Chilean Peso",
     "Buy": 8,
@@ -78,6 +90,7 @@
     "Rate": 1214.364528
   },
   {
+    "Number":12,
     "value": "CZK",
     "label": "Czech Republic Koruna",
     "Buy": 3,
@@ -85,6 +98,7 @@
     "Rate": 29.644751
   },
   {
+    "Number":13,
     "value": "CNY",
     "label": "Chinese Yuan",
     "Buy": "6.5",
@@ -92,6 +106,7 @@
     "Rate": 9.070118
   },
   {
+    "Number":14,
     "value": "COP",
     "label": "Colombian Peso",
     "Buy": "10",
@@ -100,6 +115,7 @@
   },
 
   {
+    "Number":15,
     "value": "DOP",
     "label": "Dominican Peso",
     "Buy": 7,
@@ -108,6 +124,7 @@
   },
 
   {
+    "Number":16,
     "value": "DKK",
     "label": "Danish Krone",
     "Buy": "6",
@@ -115,13 +132,15 @@
     "Rate": 8.707745
   },
   {
-    "label": "Egyptian Pounds",
+    
+    "Number":17,"label": "Egyptian Pounds",
     "value": "EGP",
     "Sell": "-1",
     "Buy": 100,
     "Rate": 38.975879
   },
   {
+    "Number":18,
     "value": "FJD",
     "label": "Fijian Dollar",
     "Buy": 6,
@@ -130,6 +149,7 @@
   },
 
   {
+    "Number":19,
     "value": "HUF",
     "label": "Hungarian Forint",
     "Buy": 4,
@@ -137,6 +157,7 @@
     "Rate": 453.203104
   },
   {
+    "Number":20,
     "value": "HKD",
     "label": "Hong Kong Dollar",
     "Buy": 3,
@@ -144,6 +165,7 @@
     "Rate": 9.866965
   },
   {
+    "Number":21,
     "value": "IDR",
     "label": "Indonesian Rupiah",
     "Buy": 10,
@@ -151,6 +173,7 @@
     "Rate": 19723.786895
   },
   {
+    "Number":22,
     "value": "ISK",
     "label": "Icelandic Króna",
     "Buy": 8,
@@ -159,13 +182,15 @@
   },
 
   {
-    "label": "Indian Rupees ",
+    
+    "Number":23,"label": "Indian Rupees ",
     "value": "INR",
     "Sell": "-2",
     "Buy": 6,
     "Rate": 104.65271
   },
   {
+    "Number":24,
     "value": "JOD",
     "label": "Jordanian Dinar",
     "Buy": "4",
@@ -174,6 +199,7 @@
   },
 
   {
+    "Number":25,
     "value": "JMD",
     "label": "Jamaican Dollar",
     "Buy": 5,
@@ -182,6 +208,7 @@
   },
 
   {
+    "Number":26,
     "value": "JPY",
     "label": "Japanese Yen",
     "Buy": 3,
@@ -189,6 +216,7 @@
     "Rate": 189.276906
   },
   {
+    "Number":27,
     "value": "KWD",
     "label": "Kuwaiti Dinar",
     "Buy": 6,
@@ -197,6 +225,7 @@
   },
 
   {
+    "Number":28,
     "value": "KRW",
     "label": "South Korean Won",
     "Buy": 6,
@@ -204,6 +233,7 @@
     "Rate": 1684.626557
   },
   {
+    "Number":29,
     "value": "KES",
     "label": "Kenyan Shilling",
     "Buy": "7",
@@ -211,13 +241,15 @@
     "Rate": 183.557385
   },
   {
-    "label": "Sri Lankan Rupees",
+    
+    "Number":30,"label": "Sri Lankan Rupees",
     "value": "LKR",
     "Sell": "-11",
     "Buy": 8,
     "Rate": 392.995835
   },
   {
+    "Number":31,
     "value": "MXN",
     "label": "Mexican Peso",
     "Buy": 3,
@@ -225,6 +257,7 @@
     "Rate": 21.520123
   },
   {
+    "Number":32,
     "value": "MYR",
     "label": "Malaysian Ringgit",
     "Buy": "5.75",
@@ -232,6 +265,7 @@
     "Rate": 6.047865
   },
   {
+    "Number":33,
     "value": "MUR",
     "label": "Mauritian Rupee",
     "Buy": "6.6",
@@ -239,13 +273,15 @@
     "Rate": 57.738002
   },
   {
-    "label": "Moroccan Dirham",
+    
+    "Number":34,"label": "Moroccan Dirham",
     "value": "MAD",
     "Sell": -20,
     "Buy": "4",
     "Rate": 12.694541
   },
   {
+    "Number":35,
     "value": "NOK",
     "label": "Norwegian Krone",
     "Buy": "4",
@@ -253,6 +289,7 @@
     "Rate": 13.243876
   },
   {
+    "Number":36,
     "value": "NZD",
     "label": "New Zealand Dollar",
     "Buy": 2,
@@ -260,6 +297,7 @@
     "Rate": 2.038812
   },
   {
+    "Number":37,
     "value": "OMR",
     "label": "Omani Rial",
     "Buy": 5,
@@ -267,6 +305,7 @@
     "Rate": 0.485626
   },
   {
+    "Number":38,
     "value": "PEN",
     "label": "Peruvian Nuevo Sol",
     "Buy": 6,
@@ -274,6 +313,7 @@
     "Rate": 4.787099
   },
   {
+    "Number":39,
     "value": "PLN",
     "label": "Polish Zloty",
     "Buy": "3.5",
@@ -281,6 +321,7 @@
     "Rate": 5.041255
   },
   {
+    "Number":40,
     "value": "PHP",
     "label": "Philippine Peso",
     "Buy": 5,
@@ -289,6 +330,7 @@
   },
 
   {
+    "Number":41,
     "value": "RON",
     "label": "Romanian Leu",
     "Buy": "5",
@@ -296,6 +338,7 @@
     "Rate": 5.812055
   },
   {
+    "Number":42,
     "value": "SAR",
     "label": "Saudi Riyal",
     "Buy": "4",
@@ -303,6 +346,7 @@
     "Rate": 4.731626
   },
   {
+    "Number":43,
     "value": "SEK",
     "label": "Swedish Krona",
     "Buy": 3,
@@ -310,6 +354,7 @@
     "Rate": 13.095532
   },
   {
+    "Number":44,
     "value": "SGD",
     "label": "Singapore Dollar",
     "Buy": 3,
@@ -317,6 +362,7 @@
     "Rate": 1.695432
   },
   {
+    "Number":45,
     "value": "TRY",
     "label": "Turkish Lira",
     "Buy": 2,
@@ -324,6 +370,7 @@
     "Rate": 39.073886
   },
   {
+    "Number":46,
     "value": "THB",
     "label": "Thai Baht",
     "Buy": 2,
@@ -332,6 +379,7 @@
   },
 
   {
+    "Number":47,
     "value": "TWD",
     "label": "New Taiwan Dollar",
     "Buy": "10.5",
@@ -339,14 +387,16 @@
     "Rate": 39.749964
   },
   {
+    "Number":48,
     "value": "VND",
-    "label": "Vietvaluese Dong",
+    "label": "Vietnamese dongs",
     "Buy": 4,
     "Sell": -7,
     "Rate": 30951.963202
   },
 
   {
+    "Number":49,
     "value": "XCD",
     "label": "East Caribbean Dollar",
     "Buy": 5.5,
@@ -355,6 +405,7 @@
   },
 
   {
+    "Number":50,
     "value": "ZAR",
     "label": "South African Rand",
     "Buy": "3",
