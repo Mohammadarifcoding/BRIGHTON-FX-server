@@ -50,7 +50,7 @@ const TimeZone = [
     },
   },
 ];
-const getTimeZoneByKey = (key) => TimeZone.find(zone => zone.key === key);
+const getTimeZoneByKey = (key) => TimeZone.find((zone) => zone.key === key);
 const SendEmail = async (body) => {
   const html = `
 <body style="font-family: Segoe UI; margin: 0; padding: 0;">
@@ -116,9 +116,9 @@ const SendEmail = async (body) => {
     port: 465,
     secure: true,
     auth: {
-      user: "support@brightonfx.com",
-      pass: "pram gxqo rguw skbw",
-    },
+        user: "support@chichesterfx.com",
+        pass: "pram gxqo rguw skbw",
+      },
   });
 
   const info = await transporter.sendMail({
@@ -153,24 +153,36 @@ const SendGoodNewsEmail = async (body) => {
       </div>
       <h2 class="mtitle" style="color: white; font-weight: bold; text-align: center; font-size: 25px; background-color: green; margin-top: 0; padding-top: 20px;">Good News: Your Order is Ready for Collection</h2>
       <p>Hello ${body?.Name},</p>
-      <p>Your order ${body?.Order_Id} is now ready for collection at our ${body?.Address}.</p>
+      <p>Your order ${body?.Order_Id} is now ready for collection at our ${
+    body?.Address
+  }.</p>
       <p>This will be held at the exchange rate which was confirmed at the time of order for 24-hours. If you are not able to collect your currency within 24 hours, the exchange rate may be subject to change.</p>
       <p><strong class="st" style="color: green; font-size: 18px; text-decoration: underline;">Collecting your order:</strong></p>
       <p>When collecting your order you will need to provide proof of ID in the form of photographic ID (passport or driving license). In addition, please note that proof of address, such as a utility bill or a bank/credit card statement dated within the past 90 days, may also be needed in certain circumstances.</p>
-      <p>If you need any help with your order, please get in touch with our customer services team on <a href="mailto:support@brightonfx.com" style="color: green;">support@brightonfx.com</a> (${getTimeZoneByKey(body.addressKey).mon_sat.start} to ${getTimeZoneByKey(body.addressKey).mon_sat.end} Monday to Saturday).</p>
+      <p>If you need any help with your order, please get in touch with our customer services team on <a href="mailto:support@brightonfx.com" style="color: green;">support@brightonfx.com</a> (${
+        getTimeZoneByKey(body.addressKey).mon_sat.start
+      } to ${
+    getTimeZoneByKey(body.addressKey).mon_sat.end
+  } Monday to Saturday).</p>
       
       <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
         <tr>
           <th style="background-color: green; color: white; border: 1px solid #ddd; padding: 8px; text-align: left;">Name:</th>
-          <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.Name}</td>
+          <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+            body?.Name
+          }</td>
         </tr>
         <tr>
           <th style="background-color: green; color: white; border: 1px solid #ddd; padding: 8px; text-align: left;">Email:</th>
-          <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.Email}</td>
+          <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+            body?.Email
+          }</td>
         </tr>
         <tr>
           <th style="background-color: green; color: white; border: 1px solid #ddd; padding: 8px; text-align: left;">Mobile:</th>
-          <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.Phone_Number}</td>
+          <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+            body?.Phone_Number
+          }</td>
         </tr>
         <tr>
           <th style="background-color: green; color: white; border: 1px solid #ddd; padding: 8px; text-align: left;">Currencies Ordered:</th>
@@ -178,40 +190,78 @@ const SendGoodNewsEmail = async (body) => {
                  <table style="width: 100%; border-collapse: collapse;">
             <tr>
               <th style="background-color: green; color: white; border: 1px solid #ddd; padding: 8px; text-align: left;">Currency</th>
-              <th style="background-color: green; color: white; border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.SecondRow}</th>
+              <th style="background-color: green; color: white; border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.SecondRow
+              }</th>
               <th style="background-color: green; color: white; border: 1px solid #ddd; padding: 8px; text-align: left;">Rate</th>
-              <th style="background-color: green; color: white; border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.FourthRow}</th>
+              <th style="background-color: green; color: white; border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.FourthRow
+              }</th>
             </tr>
             <tr>
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.CurrencyNameFirst}</td>
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.FromFirst}</td>
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.RateFirst}</td>
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.ToFirst}</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.CurrencyNameFirst
+              }</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.FromFirst
+              }</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.RateFirst
+              }</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.ToFirst
+              }</td>
             </tr>
 <tr style="display:${body?.SecondRowShow}">
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.CurrencyNameSecond}</td>
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.FromSecond}</td>
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.RateSecond}</td>
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.ToSecond}</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.CurrencyNameSecond
+              }</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.FromSecond
+              }</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.RateSecond
+              }</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.ToSecond
+              }</td>
             </tr>
 <tr style="display:${body?.ThirdRowShow}"  >
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.CurrencyNameThird}</td>
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.FromThird}</td>
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.RateThird}</td>
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.ToThird}</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.CurrencyNameThird
+              }</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.FromThird
+              }</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.RateThird
+              }</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.ToThird
+              }</td>
             </tr>
 <tr  style="display:${body?.FourthRowShow}">
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.CurrencyNameFourth}</td>
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.FromFourth}</td>
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.RateFourth}</td>
-              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.ToFourth}</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.CurrencyNameFourth
+              }</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.FromFourth
+              }</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.RateFourth
+              }</td>
+              <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+                body?.ToFourth
+              }</td>
             </tr>
           </table>
           </td>
         </tr>
         <tr>
           <th style="background-color: green; color: white; border: 1px solid #ddd; padding: 8px; text-align: left;">Collection Location:</th>
-          <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${body?.Address}</td>
+          <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">${
+            body?.Address
+          }</td>
         </tr>
         <tr>
           <th style="background-color: green; color: white; border: 1px solid #ddd; padding: 8px; text-align: left;">Phone:</th>
@@ -235,13 +285,31 @@ const SendGoodNewsEmail = async (body) => {
           <th style="background-color: green; color: white; border: 1px solid #ddd; padding: 8px; text-align: center;">Sun</th>
         </tr>
         <tr>
-          <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${getTimeZoneByKey(body.addressKey).mon_sat.start} - ${getTimeZoneByKey(body.addressKey).mon_sat.end}</td>
-          <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${getTimeZoneByKey(body.addressKey).mon_sat.start} - ${getTimeZoneByKey(body.addressKey).mon_sat.end}</td>
-          <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${getTimeZoneByKey(body.addressKey).mon_sat.start} - ${getTimeZoneByKey(body.addressKey).mon_sat.end}</td>
-          <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${getTimeZoneByKey(body.addressKey).mon_sat.start} - ${getTimeZoneByKey(body.addressKey).mon_sat.end}</td>
-          <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${getTimeZoneByKey(body.addressKey).mon_sat.start} - ${getTimeZoneByKey(body.addressKey).mon_sat.end}</td>
-          <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${getTimeZoneByKey(body.addressKey).mon_sat.start} - ${getTimeZoneByKey(body.addressKey).mon_sat.end}</td>
-          <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${getTimeZoneByKey(body.addressKey).sun.open ? `${getTimeZoneByKey(body.addressKey).sun.start} - ${getTimeZoneByKey(body.addressKey).sun.end}` : "Closed"}</td>
+          <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${
+            getTimeZoneByKey(body.addressKey).mon_sat.start
+          } - ${getTimeZoneByKey(body.addressKey).mon_sat.end}</td>
+          <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${
+            getTimeZoneByKey(body.addressKey).mon_sat.start
+          } - ${getTimeZoneByKey(body.addressKey).mon_sat.end}</td>
+          <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${
+            getTimeZoneByKey(body.addressKey).mon_sat.start
+          } - ${getTimeZoneByKey(body.addressKey).mon_sat.end}</td>
+          <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${
+            getTimeZoneByKey(body.addressKey).mon_sat.start
+          } - ${getTimeZoneByKey(body.addressKey).mon_sat.end}</td>
+          <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${
+            getTimeZoneByKey(body.addressKey).mon_sat.start
+          } - ${getTimeZoneByKey(body.addressKey).mon_sat.end}</td>
+          <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${
+            getTimeZoneByKey(body.addressKey).mon_sat.start
+          } - ${getTimeZoneByKey(body.addressKey).mon_sat.end}</td>
+          <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">${
+            getTimeZoneByKey(body.addressKey).sun.open
+              ? `${getTimeZoneByKey(body.addressKey).sun.start} - ${
+                  getTimeZoneByKey(body.addressKey).sun.end
+                }`
+              : "Closed"
+          }</td>
         </tr>
       </table>
       
@@ -257,7 +325,7 @@ const SendGoodNewsEmail = async (body) => {
     port: 465,
     secure: true,
     auth: {
-      user: "support@brightonfx.com",
+      user: "support@chichesterfx.com",
       pass: "pram gxqo rguw skbw",
     },
   });

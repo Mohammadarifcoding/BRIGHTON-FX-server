@@ -30,7 +30,7 @@ async function run() {
     const Upsell = client.db("BrightonFx").collection("Upselling");
     const Users = client.db("BrightonFx").collection("Users");
 
-    // Connect the client to the server	(optional starting in v4.7)
+  
     app.get("/currency", async (req, res) => {
       const result = await Currency.find().sort({ Number: 1 }).toArray();
       res.send(result);
